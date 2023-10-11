@@ -26,4 +26,5 @@ function getNumber(string){
       number += string.at(i);
     }
   }
+  return number;
 }
