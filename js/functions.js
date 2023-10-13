@@ -4,12 +4,10 @@ function checkLength(string, length){
 }
 
 //Функция для проверки, является ли строка палиндромом.
-function isPalindrome(string){
-  string = string.replaceAll(' ','');
-  string = string.toLowerCase();
-
+function isPalindrome(rawString){
+  let string = rawString.replaceAll(' ','').toLowerCase();
   const length = string.length;
-  for(let i = 0; i < (length / 2); i++){
+  for(let i = 0; i < Math.floor(length / 2); i++){
     if(!(string.at(i) === string.at(length - 1 - i))){
       return false;
     }
@@ -18,13 +16,16 @@ function isPalindrome(string){
 }
 
 //Функция принимает строку, извлекает содержащиеся в ней цифры от 0 до 9 и возвращает их в виде целого положительного числа.
-function getNumber(string){
-  string = String(string);
+function getNumber(rawString){
+  let string = String(rawString);
   let number = '';
   for(let i = 0; i < string.length; i++){
     if(!Number.isNaN(parseInt(string.at(i)))){
       number += string.at(i);
     }
   }
-  return number;
+  if(number === ''){
+    return NaN;
+  }
+  return parseInt(number);
 }
