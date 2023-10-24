@@ -59,7 +59,7 @@ const createIdGenerator = () => {
   };
 };
 
-const generateCommentId = createIdGenerator;
+const generateCommentId = createIdGenerator();
 
 const createMessage = () => Array.from(
   {length: getRandomInteger(1, 2) },
@@ -67,28 +67,32 @@ const createMessage = () => Array.from(
 ).join(' ');
 
 const createComment = () => ({
-  id : generateCommentId,
+  id : generateCommentId(),
   avatar : `img/avatar-${getRandomInteger(1, MAX_AVATAR)}.svg`,
-  message : createMessage,
+  message : createMessage(),
   name : getRandomArrayElement(SOME_NAMES),
 });
 
 const generatePictureId = createIdGenerator();
 
-const createPictures = () => ({
-  id : generatePictureId,
-  url : `photos/${this.id}`,
-  description : getRandomArrayElement(DESCRIPTIONS),
-  likes : getRandomInteger(MIN_LIKES, MAX_LIKES),
-  comments : Array.from(
-    {length : getRandomInteger(0,MAX_COMMENTS)},
-    createComment),
-});
+const createPicture = () => {
+  const pictureId = generatePictureId();
+  const picture = {
+    id : pictureId,
+    url : `photos/${pictureId}.jpg`,
+    description : getRandomArrayElement(DESCRIPTIONS),
+    likes : getRandomInteger(MIN_LIKES, MAX_LIKES),
+    comments : Array.from(
+      {length : getRandomInteger(0,MAX_COMMENTS)},
+      createComment),
+  };
+  return picture;
+};
 
 const createData = () => Array.from(
   {length : MAX_PICTURES },
-  createPictures);
+  createPicture);
 
 createData();
-
+debugger;
 
