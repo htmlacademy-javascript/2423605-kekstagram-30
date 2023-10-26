@@ -1,4 +1,4 @@
-import {getRandomInteger, getRandomArrayElement, createIdGenerator} from './util.js'
+import {getRandomInteger, getRandomArrayElement, createIdGenerator} from './util.js';
 
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
@@ -34,8 +34,6 @@ const DESCRIPTIONS = [
   'После сытного обеда, по закону Архимеда...',
   'Шла Саша по шоссе...',
 ];
-
-
 
 const generateCommentId = createIdGenerator();
 
