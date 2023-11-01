@@ -16,6 +16,7 @@ function doTime(startTime, endTime, startEventTime, eventTime){
   return true;
 }
 
+
 /*
 //Функция для проверки длины строки.
 function checkLength(string, length){
