@@ -1,4 +1,5 @@
 import {isEscapeKey} from './util.js';
+import {createComments} from './comments.js';
 
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('.big-picture__img img');
@@ -35,6 +36,7 @@ function onClickPicture({url, description, likes, comments}){
   bigPictureDescription.textContent = description;
   bigPictureLikes.textContent = likes;
   bigPictureAllComments.textContent = comments.length;
+  createComments(comments);
 
 }
 
